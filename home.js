@@ -1,50 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add hover effect to album, recommended, and carousel items
     const albumItems = document.querySelectorAll('.album-item');
     const recommendedItems = document.querySelectorAll('.recommended-item');
     const carouselItems = document.querySelectorAll('.carousel-item');
 
     const allItems = [...albumItems, ...recommendedItems, ...carouselItems];
 
+    const audioPlayer = document.getElementById('audio-player');
+    const playPauseButton = document.getElementById('play-pause');
+    const progressBar = document.getElementById('progress-bar');
+    const bottomPlayerSongTitle = document.getElementById('bottom-player-song-title');
+    const bottomPlayerArtistName = document.getElementById('bottom-player-artist-name');
+    const bottomPlayerAlbumCover = document.getElementById('bottom-player-album-cover');
+
+    let isPlaying = false;
+
     allItems.forEach(item => {
-        item.addEventListener('mouseover', () => {
-            item.style.transform = 'scale(1.05)';
-            item.style.transition = 'transform 0.3s';
-        });
-
-        item.addEventListener('mouseout', () => {
-            item.style.transform = 'scale(1)';
-        });
-
         item.addEventListener('click', () => {
             const songTitle = item.querySelector('p').innerText;
             const albumCover = item.querySelector('img').src;
             const audioSource = item.getAttribute('data-audio-src');
-            const artistName = "Unknown Artist"; // Update this if you have artist information
-
-            console.log(`Playing song: ${songTitle}`);
-            console.log(`Audio source: ${audioSource}`);
+            const artistName = item.querySelectorAll('p')[1].innerText;
 
             if (!audioSource) {
                 console.error('Audio source is missing for this item.');
                 return;
             }
 
-            const bottomPlayerAudio = document.getElementById('bottom-player-audio');
-            const bottomPlayerSongTitle = document.getElementById('bottom-player-song-title');
-            const bottomPlayerArtistName = document.getElementById('bottom-player-artist-name');
-            const bottomPlayerAlbumCover = document.getElementById('bottom-player-album-cover');
-
-            bottomPlayerAudio.src = audioSource;
+            audioPlayer.src = audioSource;
             bottomPlayerSongTitle.innerText = songTitle;
             bottomPlayerArtistName.innerText = artistName;
             bottomPlayerAlbumCover.src = albumCover;
 
-            bottomPlayerAudio.load(); // Ensure the new source is loaded
-            bottomPlayerAudio.play().catch(error => {
+            audioPlayer.load();
+            audioPlayer.play().catch(error => {
                 console.error('Error playing audio:', error);
             });
+
+            isPlaying = true;
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         });
+    });
+
+    playPauseButton.addEventListener('click', () => {
+        if (isPlaying) {
+            audioPlayer.pause();
+            playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+        } else {
+            audioPlayer.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+        }
+        isPlaying = !isPlaying;
+    });
+
+    audioPlayer.addEventListener('timeupdate', () => {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.value = progress;
+    });
+
+    progressBar.addEventListener('input', () => {
+        const seekTime = (progressBar.value / 100) * audioPlayer.duration;
+        audioPlayer.currentTime = seekTime;
     });
 
     // Add search functionality

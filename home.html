@@ -42,14 +42,17 @@
                 <div class="carousel-item" data-audio-src="music/Beau Young Prince - Let Go.mp3">
                     <img src="images/let go.jpg.png" alt="Trending 1">
                     <p>Let Go</p>
+                    <p>Beau Young Prince</p>
                 </div>
                 <div class="carousel-item" data-audio-src="music/FINDERS KEEPERS feat. Scorey & Internet Money (Official Lyric Video).mp3">
                     <img src="images/finders keeper.jpg" alt="Trending 2">
                     <p>Finders Keeper</p>
+                    <p>Scorey & Internet Money</p>
                 </div>
                 <div class="carousel-item" data-audio-src="music/JADED.mp3">
                     <img src="images/jaded.jpg" alt="Trending 3">
                     <p>Jaded</p>
+                    <p>Fordo</p>
                 </div>
             </div>
         </section>
@@ -59,14 +62,17 @@
                 <div class="album-item" data-audio-src="music/Travis Scott - FE!N (Official Music Video) ft. Playboi Carti.mp3">
                     <img src="images/utopia.jpg" alt="Album 1">
                     <p>Utopia</p>
+                    <p>Travis Scott ft. Playboi Carti</p>
                 </div>
                 <div class="album-item" data-audio-src="music/Lil Uzi Vert - Nakamura [Official Audio].mp3">
                     <img src="images/Lil-Uzi-Vert-Pink-Tape.jpg" alt="Album 2">
                     <p>Pink Tape</p>
+                    <p>Lil Uzi Vert</p>
                 </div>
                 <div class="album-item" data-audio-src="music/Lil Tecca - REPEAT IT ft. Gunna (Official Video).mp3">
                     <img src="images/tecca 2.jpg" alt="Album 3">
                     <p>Tecca 2</p>
+                    <p>Lil Tecca ft. Gunna</p>
                 </div>
             </div>
         </section>
@@ -76,14 +82,17 @@
                 <div class="recommended-item" data-audio-src="music/Internet Money - Thrusting Ft. Swae Lee & Future (Official Lyric Video).mp3">
                     <img src="images/thrusting.jpg" alt="Recommended 1">
                     <p>Thrusting</p>
+                    <p>Internet Money ft. Swae Lee & Future</p>
                 </div>
                 <div class="recommended-item" data-audio-src="music/Maroon 5 - Payphone ft. Wiz Khalifa (Explicit) (Official Music Video).mp3">
                     <img src="images/payphone.jpg" alt="Recommended 2">
                     <p>Payphone</p>
+                    <p>Maroon 5 ft. Wiz Khalifa</p>
                 </div>
                 <div class="recommended-item" data-audio-src="music/Oliver Cronin - Boys Don't Cry.mp3">
                     <img src="images/boys dont cry.jpg" alt="Recommended 3">
                     <p>Boys Don't Cry</p>
+                    <p>Oliver Cronin</p>
                 </div>
             </div>
         </section>
@@ -94,7 +103,15 @@
                     <h3 class="song-title" id="bottom-player-song-title">Song Title</h3>
                     <p class="artist-name" id="bottom-player-artist-name">Artist Name</p>
                 </div>
-                <audio controls id="bottom-player-audio">
+                <div class="controls">
+                    <button id="prev"><i class="fas fa-backward"></i></button>
+                    <button id="play-pause"><i class="fas fa-play"></i></button>
+                    <button id="next"><i class="fas fa-forward"></i></button>
+                </div>
+                <div class="progress">
+                    <input type="range" id="progress-bar" value="0" max="100">
+                </div>
+                <audio id="audio-player">
                     <source src="audio/sample-song.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>

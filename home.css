@@ -1,3 +1,4 @@
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -6,10 +7,10 @@ body {
     color: #ffffff;
 }
 .container {
-    max-width: 1200px; /* Set a max-width for the container */
+    max-width: 1200px; 
     width: 100%;
-    padding: 0 20px; /* Add padding for spacing */
-    margin: 0 auto; /* Center the container */
+    padding: 0 20px; 
+    margin: 0 auto; 
 }
 
 header {
@@ -19,24 +20,23 @@ header {
     text-align: center;
 }
 
-/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background: linear-gradient(90deg, #1DB954, #1ED760); /* Add gradient background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    background: linear-gradient(90deg, #1DB954, #1ED760); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 nav .logo img {
-    height: 40px; /* Adjust the height as needed */
+    height: 40px; 
     width: auto;
-    transition: transform 0.3s; /* Add animation */
+    transition: transform 0.3s; 
 }
 
 nav .logo img:hover {
-    transform: scale(1.1); /* Scale up on hover */
+    transform: scale(1.1); 
 }
 
 nav ul {
@@ -57,14 +57,14 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 10px 15px; /* Add padding for better spacing */
-    border-radius: 5px; /* Add border radius for rounded corners */
-    transition: background-color 0.3s, color 0.3s; /* Add animation */
+    padding: 10px 15px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s, color 0.3s; 
 }
 
 nav ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Add background on hover */
-    color: #121212; /* Change color on hover */
+    background-color: rgba(255, 255, 255, 0.2); 
+    color: #121212;
 }
 
 .search-bar {
@@ -73,15 +73,15 @@ nav ul li a:hover {
 }
 
 .search-bar input {
-    padding: 5px 10px; /* Add padding for better spacing */
+    padding: 5px 10px;
     border: none;
     border-radius: 5px;
     width: 200px;
-    transition: width 0.3s; /* Add animation */
+    transition: width 0.3s;
 }
 
 .search-bar input:focus {
-    width: 250px; /* Expand on focus */
+    width: 250px; 
 }
 
 .search-bar button {
@@ -91,28 +91,27 @@ nav ul li a:hover {
     padding: 5px 10px;
     cursor: pointer;
     margin-left: 5px;
-    transition: background-color 0.3s; /* Add animation */
+    transition: background-color 0.3s;
 }
 
 .search-bar button:hover {
-    background-color: #f0f0f0; /* Change background on hover */
+    background-color: #f0f0f0;
 }
 
 .search-bar button i {
     color: #1DB954;
 }
 
-/* Hero Section */
 .hero {
-    background-image: url('hero-bg.jpg'); /* Path to your background image */
-    background-size: cover; /* Ensures the image covers the entire section */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    color: white; /* Ensures text is readable */
-    text-align: center; /* Centers the text */
-    padding: 100px 20px; /* Adds padding for spacing */
-    position: relative; /* Allows for positioning of child elements */
-    animation: fadeIn 1s ease-in-out; /* Add animation */
+    background-image: url('hero-bg.jpg'); 
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    color: white; 
+    text-align: center;
+    padding: 100px 20px; 
+    position: relative; 
+    animation: fadeIn 1s ease-in-out;
 }
 
 .hero::after {
@@ -122,14 +121,14 @@ nav ul li a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text visibility */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    animation: slideIn 1s ease-in-out; /* Add animation */
+    animation: slideIn 1s ease-in-out;
 }
 
 .cta-button {
@@ -139,22 +138,21 @@ nav ul li a:hover {
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s; /* Add animation */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .cta-button:hover {
-    background-color: #17a74a; /* Change background on hover */
-    transform: scale(1.05); /* Scale up on hover */
+    background-color: #17a74a; 
+    transform: scale(1.05);
 }
 
-/* Carousel */
 .carousel {
     display: flex;
-    justify-content: center; /* Center the carousel items */
+    justify-content: center; 
     overflow-x: auto;
     gap: 20px;
     padding: 20px;
-    animation: fadeIn 1s ease-in-out; /* Add animation */
+    animation: fadeIn 1s ease-in-out;
 }
 
 .carousel-item {
@@ -164,26 +162,27 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    transition: transform 0.3s; /* Add animation */
+    transition: transform 0.3s; 
 }
 
 .carousel-item:hover {
-    transform: scale(1.05); /* Scale up on hover */
+    transform: scale(1.05);
 }
 
 .carousel-item img {
     width: 100%;
-    height: 230px; /* Set a fixed height for uniformity */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    height: 230px; 
+    object-fit: cover; 
     border-radius: 5px;
 }
-/* Album Grid */
+
+
 .album-grid {
     display: flex;
-    justify-content: center; /* Center the grid */
+    justify-content: center;
     gap: 20px;
     padding: 20px;
-    animation: fadeIn 1s ease-in-out; /* Add animation */
+    animation: fadeIn 1s ease-in-out; 
 }
 
 .album-item {
@@ -192,27 +191,27 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    transition: transform 0.3s; /* Add animation */
+    transition: transform 0.3s; 
 }
 
 .album-item:hover {
-    transform: scale(1.05); /* Scale up on hover */
+    transform: scale(1.05); 
 }
 
 .album-item img {
     width: 100%;
-    height: 230px; /* Set a fixed height for uniformity */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    height: 230px; 
+    object-fit: cover; 
     border-radius: 5px;
 }
 
-/* Recommended Grid */
+
 .recommended-grid {
     display: flex;
-    justify-content: center; /* Center the grid */
+    justify-content: center;
     gap: 20px;
     padding: 20px;
-    animation: fadeIn 1s ease-in-out; /* Add animation */
+    animation: fadeIn 1s ease-in-out; 
 }
 
 .recommended-item {
@@ -221,21 +220,21 @@ nav ul li a:hover {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
-    transition: transform 0.3s; /* Add animation */
+    transition: transform 0.3s; 
 }
 
 .recommended-item:hover {
-    transform: scale(1.05); /* Scale up on hover */
+    transform: scale(1.05); 
 }
 
 .recommended-item img {
     width: 100%;
-    height: 230px; /* Adjusted height for uniformity */
-    object-fit: cover; /* Ensure the image covers the area without distortion */
+    height: 230px;
+    object-fit: cover; 
     border-radius: 5px;
 }
 
-/* Footer Styles */
+
 footer {
     background-color: #1DB954;
     color: white;
@@ -264,7 +263,7 @@ footer {
     color: #121212;
 }
 
-/* General styles for the theme toggle */
+
 .theme-toggle {
     display: flex;
     align-items: center;
@@ -275,19 +274,19 @@ footer {
     width: 24px;
     height: 24px;
     margin-right: 10px;
-    display: none; /* Hide both icons by default */
+    display: none; 
 }
 
 .theme-icon {
-    display: none; /* Hide all theme icons by default */
+    display: none;
 }
 
 body:not(.light-mode) .dark-mode-icon {
-    display: block; /* Show dark mode icon when not in light mode */
+    display: block; 
 }
 
 body.light-mode .light-mode-icon {
-    display: block; /* Show light mode icon when in light mode */
+    display: block; 
 }
 
 .theme-toggle input[type="checkbox"] {
@@ -315,20 +314,19 @@ body.light-mode .light-mode-icon {
 }
 
 .theme-toggle input[type="checkbox"]:checked {
-    background-color: #4caf50; /* Green background when checked */
+    background-color: #4caf50; 
 }
 
 .theme-toggle input[type="checkbox"]:checked::before {
-    transform: translateX(20px); /* Move the toggle circle to the right */
+    transform: translateX(20px); 
 }
 
-/* Light mode styles */
 body.light-mode .theme-toggle .light-mode-icon {
-    display: block; /* Show light mode icon */
+    display: block;
 }
 
 body.light-mode .theme-toggle .dark-mode-icon {
-    display: none; /* Hide dark mode icon */
+    display: none; 
 }
 
 body.light-mode .theme-toggle input[type="checkbox"] {
@@ -339,80 +337,76 @@ body.light-mode .theme-toggle input[type="checkbox"]:checked {
     background-color: #4caf50;
 }
 
-/* Light mode styles */
 body.light-mode {
     background-color: #f5f5f5;
-    color: #000000; /* Changed to black for better contrast */
+    color: #000000; 
 }
 
 body.light-mode .carousel-item,
 body.light-mode .album-item,
 body.light-mode .recommended-item {
     background-color: #ffffff;
-    color: #000000; /* Changed to black */
+    color: #000000; 
 }
 
 body.light-mode h1,
 body.light-mode h2,
 body.light-mode h3,
 body.light-mode p {
-    color: #000000; /* Ensure all text elements are black in light mode */
+    color: #000000; 
 }
 
 body.light-mode nav ul li a {
-    color: #ffffff; /* Keep nav text white for contrast with the green background */
+    color: #ffffff; 
 }
 
 body.light-mode nav ul li a:hover {
-    color: #000000; /* Change hover color to black for better visibility */
+    color: #000000; 
 }
 
 body.light-mode .hero-content {
-    color: #000000; /* Change hero text to black */
+    color: #000000; 
 }
 
 body.light-mode .cta-button {
-    color: #ffffff; /* Keep button text white for contrast */
-    background-color: #1DB954; /* Ensure button background is visible in light mode */
+    color: #ffffff; 
+    background-color: #1DB954; 
 }
 
 body.light-mode .search-bar input {
-    color: #000000; /* Change input text color to black */
-    background-color: #ffffff; /* Ensure input background is white */
+    color: #000000; 
+    background-color: #ffffff; 
 }
 
 body.light-mode .search-bar button i {
-    color: #1DB954; /* Keep the search icon green */
+    color: #1DB954; 
 }
 
-/* You may need to adjust other specific elements as needed */
 
-/* Music Player Styles */
 .music-player {
     position: fixed;
     bottom: 0;
-    left: 0;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
-    backdrop-filter: blur(10px); /* This creates the glass effect */
-    -webkit-backdrop-filter: blur(10px); /* For Safari support */
-    z-index: 1000; /* Ensure it's above other content */
-    padding: 10px 0;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .player-content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    width: 100%;
 }
 
 .album-cover {
-    width: 60px;
-    height: 60px;
+    height: 50px;
+    width: 50px;
     border-radius: 5px;
     margin-right: 15px;
 }
@@ -423,22 +417,42 @@ body.light-mode .search-bar button i {
 
 .song-title {
     margin: 0;
-    font-size: 16px;
-    color: #ffffff;
+    font-size: 1em;
 }
 
 .artist-name {
-    margin: 5px 0 0;
-    font-size: 14px;
-    color: #b3b3b3;
+    margin: 0;
+    font-size: 0.8em;
+    color: #ccc;
 }
 
-.music-player audio {
-    width: 50%;
-    max-width: 400px;
+.controls {
+    display: flex;
+    align-items: center;
 }
 
-/* Adjust the audio player styles for better visibility */
+.controls button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.controls button:focus {
+    outline: none;
+}
+
+.progress {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+#progress-bar {
+    width: 100%;
+}
+
 .music-player audio::-webkit-media-controls-panel {
     background-color: rgba(255, 255, 255, 0.1);
 }
@@ -448,12 +462,10 @@ body.light-mode .search-bar button i {
     color: #ffffff;
 }
 
-/* Adjust the main content to prevent overlap with the fixed player */
 body {
-    padding-bottom: 80px; /* Adjust this value based on your player's height */
+    padding-bottom: 80px; 
 }
 
-/* Light mode adjustments */
 body.light-mode .music-player {
     background-color: rgba(255, 255, 255, 0.7);
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
@@ -476,7 +488,7 @@ body.light-mode .music-player audio::-webkit-media-controls-time-remaining-displ
     color: #000000;
 }
 
-/* Button Animations */
+
 button {
     transition: transform 0.3s;
 }
@@ -485,7 +497,7 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* Keyframes for Animations */
+
 @keyframes fadeIn {
     from {
         opacity: 0;
