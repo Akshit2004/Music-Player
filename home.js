@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const audioPlayer = document.getElementById('audio-player');
     const playPauseButton = document.getElementById('play-pause');
     const progressBar = document.getElementById('progress-bar');
+    const progressRange = document.getElementById('progress-range');
     const bottomPlayerSongTitle = document.getElementById('bottom-player-song-title');
     const bottomPlayerArtistName = document.getElementById('bottom-player-artist-name');
     const bottomPlayerAlbumCover = document.getElementById('bottom-player-album-cover');
@@ -15,7 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let isPlaying = false;
 
     allItems.forEach(item => {
-        item.addEventListener('click', () => {
+        const playButton = item.querySelector('.play-button');
+        const likeButton = item.querySelector('.like-button');
+
+        playButton.addEventListener('click', () => {
             const songTitle = item.querySelector('p').innerText;
             const albumCover = item.querySelector('img').src;
             const audioSource = item.getAttribute('data-audio-src');
@@ -39,6 +43,26 @@ document.addEventListener('DOMContentLoaded', () => {
             isPlaying = true;
             playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         });
+
+        likeButton.addEventListener('click', () => {
+            likeButton.classList.toggle('liked');
+            if (likeButton.classList.contains('liked')) {
+                likeButton.innerHTML = '<i class="fas fa-heart"></i>';
+            } else {
+                likeButton.innerHTML = '<i class="far fa-heart"></i>';
+            }
+        });
+    });
+
+    audioPlayer.addEventListener('timeupdate', () => {
+        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressRange.value = progress;
+    });
+
+    progressRange.addEventListener('input', (e) => {
+        const seekTime = (e.target.value / 100) * audioPlayer.duration;
+        audioPlayer.currentTime = seekTime;
     });
 
     playPauseButton.addEventListener('click', () => {
@@ -52,16 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
             playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         }
         isPlaying = !isPlaying;
-    });
-
-    audioPlayer.addEventListener('timeupdate', () => {
-        const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
-        progressBar.value = progress;
-    });
-
-    progressBar.addEventListener('input', () => {
-        const seekTime = (progressBar.value / 100) * audioPlayer.duration;
-        audioPlayer.currentTime = seekTime;
     });
 
     // Add search functionality
@@ -107,6 +121,36 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             body.classList.remove('light-mode');
             localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Add functionality to "Start Listening" button
+    const startListeningButton = document.querySelector('.cta-button');
+    startListeningButton.addEventListener('click', () => {
+        const firstCarouselItem = carouselItems[0];
+        if (firstCarouselItem) {
+            const songTitle = firstCarouselItem.querySelector('p').innerText;
+            const albumCover = firstCarouselItem.querySelector('img').src;
+            const audioSource = firstCarouselItem.getAttribute('data-audio-src');
+            const artistName = firstCarouselItem.querySelectorAll('p')[1].innerText;
+
+            if (!audioSource) {
+                console.error('Audio source is missing for this item.');
+                return;
+            }
+
+            audioPlayer.src = audioSource;
+            bottomPlayerSongTitle.innerText = songTitle;
+            bottomPlayerArtistName.innerText = artistName;
+            bottomPlayerAlbumCover.src = albumCover;
+
+            audioPlayer.load();
+            audioPlayer.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
+
+            isPlaying = true;
+            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         }
     });
 });
