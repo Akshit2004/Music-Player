@@ -104,6 +104,7 @@
                     <p>Maroon 5 ft. Wiz Khalifa</p>
                     <button class="play-button"><i class="fas fa-play"></i></button>
                     <button class="like-button"><i class="fas fa-heart"></i></button>
+                    <button class="add-to-queue-button"><i class="fas fa-plus"></i> Add to Queue</button>
                 </div>
                 <div class="recommended-item" data-audio-src="music/Oliver Cronin - Boys Don't Cry.mp3">
                     <img src="images/boys dont cry.jpg" alt="Recommended 3">
@@ -111,44 +112,42 @@
                     <p>Oliver Cronin</p>
                     <button class="play-button"><i class="fas fa-play"></i></button>
                     <button class="like-button"><i class="fas fa-heart"></i></button>
+                    <button class="add-to-queue-button"><i class="fas fa-plus"></i> Add to Queue</button>
                 </div>
             </div>
         </section>
-                       <div class="music-player">
-                    <div class="player-content">
-                        <div class="song-info">
-                            <img src="images/album-cover.jpg" alt="Album Cover" class="album-cover" id="bottom-player-album-cover">
-                            <div>
-                                <h3 class="song-title" id="bottom-player-song-title">Song Title</h3>
-                                <p class="artist-name" id="bottom-player-artist-name">Artist Name</p>
-                            </div>
-                        </div>
-                        <div class="progress">
-                            <div class="progress-container">
-                                <div class="progress-bar" id="progress-bar"></div>
-                                <input type="range" id="progress-range" value="0" max="100">
-                            </div>
-                        </div>
+                <div class="music-player hidden" id="music-player">
+            <div class="player-content">
+                <div class="song-info">
+                    <img src="images/album-cover.jpg" alt="Album Cover" class="album-cover" id="bottom-player-album-cover">
+                    <div>
+                        <h3 class="song-title" id="bottom-player-song-title">Song Title</h3>
+                        <p class="artist-name" id="bottom-player-artist-name">Artist Name</p>
                     </div>
-                    <div class="controls">
-                        <button id="prev"><i class="fas fa-backward"></i></button>
-                        <button id="play-pause"><i class="fas fa-play"></i></button>
-                        <button id="next"><i class="fas fa-forward"></i></button>
-                        <button id="like"><i class="fas fa-heart"></i></button> <!-- Like button added here -->
-                    </div>
-                    <audio id="audio-player">
-                        <source src="audio/sample-song.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
                 </div>
+                <div class="progress">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                        <input type="range" id="progress-range" value="0" max="100">
+                    </div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="prev"><i class="fas fa-backward"></i></button>
+                <button id="play-pause"><i class="fas fa-play"></i></button>
+                <button id="next"><i class="fas fa-forward"></i></button>
+                <button id="like"><i class="fas fa-heart"></i></button>
+            </div>
+            <audio id="audio-player">
+                <source src="audio/sample-song.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+                   
     </main>
     <footer>
         <div class="footer-content">
-            <div class="social-media">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-            </div>
+            
             <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
         </div>
     </footer>

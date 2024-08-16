@@ -12,8 +12,39 @@ document.addEventListener('DOMContentLoaded', () => {
     const bottomPlayerSongTitle = document.getElementById('bottom-player-song-title');
     const bottomPlayerArtistName = document.getElementById('bottom-player-artist-name');
     const bottomPlayerAlbumCover = document.getElementById('bottom-player-album-cover');
+    const musicPlayer = document.getElementById('music-player');
 
     let isPlaying = false;
+    let queue = [];
+
+    function addToQueue(song) {
+        queue.push(song);
+        if (queue.length === 1) {
+            playNextInQueue();
+        }
+    }
+
+    function playNextInQueue() {
+        if (queue.length === 0) {
+            musicPlayer.classList.add('hidden');
+            return;
+        }
+
+        const nextSong = queue.shift();
+        audioPlayer.src = nextSong.audioSource;
+        bottomPlayerSongTitle.innerText = nextSong.songTitle;
+        bottomPlayerArtistName.innerText = nextSong.artistName;
+        bottomPlayerAlbumCover.src = nextSong.albumCover;
+
+        audioPlayer.load();
+        audioPlayer.play().catch(error => {
+            console.error('Error playing audio:', error);
+        });
+
+        isPlaying = true;
+        playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+        musicPlayer.classList.remove('hidden');
+    }
 
     allItems.forEach(item => {
         const playButton = item.querySelector('.play-button');
@@ -30,26 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            audioPlayer.src = audioSource;
-            bottomPlayerSongTitle.innerText = songTitle;
-            bottomPlayerArtistName.innerText = artistName;
-            bottomPlayerAlbumCover.src = albumCover;
+            const song = {
+                songTitle,
+                albumCover,
+                audioSource,
+                artistName
+            };
 
-            audioPlayer.load();
-            audioPlayer.play().catch(error => {
-                console.error('Error playing audio:', error);
-            });
-
-            isPlaying = true;
-            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            addToQueue(song);
         });
 
         likeButton.addEventListener('click', () => {
             likeButton.classList.toggle('liked');
             if (likeButton.classList.contains('liked')) {
-                likeButton.innerHTML = '<i class="fas fa-heart"></i>';
+                // Handle like action
             } else {
-                likeButton.innerHTML = '<i class="far fa-heart"></i>';
+                // Handle unlike action
             }
         });
     });
@@ -77,6 +104,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         isPlaying = !isPlaying;
     });
+
+    audioPlayer.addEventListener('ended', playNextInQueue);
 
     // Add search functionality
     const searchInput = document.querySelector('.search-bar input');
@@ -139,18 +168,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            audioPlayer.src = audioSource;
-            bottomPlayerSongTitle.innerText = songTitle;
-            bottomPlayerArtistName.innerText = artistName;
-            bottomPlayerAlbumCover.src = albumCover;
+            const song = {
+                songTitle,
+                albumCover,
+                audioSource,
+                artistName
+            };
 
-            audioPlayer.load();
-            audioPlayer.play().catch(error => {
-                console.error('Error playing audio:', error);
-            });
-
-            isPlaying = true;
-            playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+            addToQueue(song);
         }
     });
 });

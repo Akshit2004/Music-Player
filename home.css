@@ -1,4 +1,6 @@
 
+
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -452,7 +454,9 @@ body {
     z-index: 1000;
     backdrop-filter: blur(5px);
 }
-
+.hidden {
+    display: none;
+}
 .player-content {
     display: flex;
     align-items: center;
@@ -658,5 +662,115 @@ button:hover {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .search-bar input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .carousel, .album-grid, .recommended-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-item, .album-item, .recommended-item {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .music-player {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .player-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .progress {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .controls {
+        width: 100%;
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 480px) {
+    nav .logo img {
+        height: 30px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    .search-bar input {
+        font-size: 14px;
+    }
+
+    .search-bar button {
+        font-size: 14px;
+        padding: 5px 8px;
+    }
+
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .carousel-item img, .album-item img, .recommended-item img {
+        height: 200px;
+    }
+
+    .cta-button {
+        font-size: 14px;
+        padding: 8px 15px;
+    }
+
+    .music-player {
+        padding: 10px;
+    }
+
+    .album-cover {
+        width: 50px;
+        height: 50px;
+    }
+
+    .song-info h3 {
+        font-size: 14px;
+    }
+
+    .song-info p {
+        font-size: 12px;
+    }
+
+    .controls button {
+        font-size: 20px;
     }
 }
