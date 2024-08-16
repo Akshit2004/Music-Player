@@ -13,13 +13,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const bottomPlayerArtistName = document.getElementById('bottom-player-artist-name');
     const bottomPlayerAlbumCover = document.getElementById('bottom-player-album-cover');
     const musicPlayer = document.getElementById('music-player');
+    const queueToggleButton = document.getElementById('queue-toggle');
+    const queueModal = document.getElementById('queue-modal');
+    const queueList = document.getElementById('queue-list');
 
     let isPlaying = false;
     let queue = [];
 
     function addToQueue(song) {
         queue.push(song);
-        if (queue.length === 1) {
+        updateQueueList();
+        if (queue.length === 1 && !isPlaying) {
             playNextInQueue();
         }
     }
@@ -44,11 +48,26 @@ document.addEventListener('DOMContentLoaded', () => {
         isPlaying = true;
         playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         musicPlayer.classList.remove('hidden');
+        updateQueueList();
     }
+
+    function updateQueueList() {
+        queueList.innerHTML = '';
+        queue.forEach((song, index) => {
+            const listItem = document.createElement('li');
+            listItem.innerText = `${index + 1}. ${song.songTitle} - ${song.artistName}`;
+            queueList.appendChild(listItem);
+        });
+    }
+
+    queueToggleButton.addEventListener('click', () => {
+        queueModal.classList.toggle('hidden');
+    });
 
     allItems.forEach(item => {
         const playButton = item.querySelector('.play-button');
         const likeButton = item.querySelector('.like-button');
+        const addToQueueButton = item.querySelector('.add-to-queue-button');
 
         playButton.addEventListener('click', () => {
             const songTitle = item.querySelector('p').innerText;
@@ -68,7 +87,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 artistName
             };
 
-            addToQueue(song);
+            queue.unshift(song); // Add the song to the front of the queue
+            playNextInQueue(); // Play the song immediately
         });
 
         likeButton.addEventListener('click', () => {
@@ -78,6 +98,27 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Handle unlike action
             }
+        });
+
+        addToQueueButton.addEventListener('click', () => {
+            const songTitle = item.querySelector('p').innerText;
+            const albumCover = item.querySelector('img').src;
+            const audioSource = item.getAttribute('data-audio-src');
+            const artistName = item.querySelectorAll('p')[1].innerText;
+
+            if (!audioSource) {
+                console.error('Audio source is missing for this item.');
+                return;
+            }
+
+            const song = {
+                songTitle,
+                albumCover,
+                audioSource,
+                artistName
+            };
+
+            addToQueue(song); // Add the song to the queue without playing it immediately
         });
     });
 
