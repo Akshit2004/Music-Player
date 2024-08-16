@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card" data-tilt>
+            <h2>Login</h2>
+            <form class="login-form" id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="alternative-login">
+                <p>Or sign in with</p>
+                <div class="social-buttons">
+                    <a href="https://accounts.google.com/signin" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="mailto:someone@example.com" class="social-btn mail"><i class="fas fa-envelope"></i></a>
+                    <a href="https://discord.com/login" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/login" class="social-btn github"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="signup-option">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

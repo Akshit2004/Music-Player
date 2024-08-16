@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card" data-tilt>
+            <h2>Sign Up</h2>
+            <form class="signup-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password:</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <span class="show-password-icon"><i class="fas fa-eye"></i></span>
+                </div>
+                
+                <button type="submit" class="btn">Sign Up</button>
+            </form>
+            <div class="alternative-login">
+                <p>Or sign up with</p>
+                <div class="social-buttons">
+                    <a href="https://accounts.google.com/signup" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="mailto:someone@example.com" class="social-btn mail"><i class="fas fa-envelope"></i></a>
+                    <a href="https://discord.com/register" class="social-btn discord"><i class="fab fa-discord"></i></a>
+                    <a href="https://github.com/join" class="social-btn github"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="login-option">
+                <p>Already have an account? <a href="index.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

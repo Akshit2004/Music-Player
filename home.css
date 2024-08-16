@@ -1,0 +1,507 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #ffffff;
+}
+.container {
+    max-width: 1200px; /* Set a max-width for the container */
+    width: 100%;
+    padding: 0 20px; /* Add padding for spacing */
+    margin: 0 auto; /* Center the container */
+}
+
+header {
+    background-color: #1DB954;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #1DB954, #1ED760); /* Add gradient background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+nav .logo img {
+    height: 40px; /* Adjust the height as needed */
+    width: auto;
+    transition: transform 0.3s; /* Add animation */
+}
+
+nav .logo img:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+h2 {
+    text-align: center;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px; /* Add padding for better spacing */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Add animation */
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Add background on hover */
+    color: #121212; /* Change color on hover */
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: 5px 10px; /* Add padding for better spacing */
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    transition: width 0.3s; /* Add animation */
+}
+
+.search-bar input:focus {
+    width: 250px; /* Expand on focus */
+}
+
+.search-bar button {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-left: 5px;
+    transition: background-color 0.3s; /* Add animation */
+}
+
+.search-bar button:hover {
+    background-color: #f0f0f0; /* Change background on hover */
+}
+
+.search-bar button i {
+    color: #1DB954;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('hero-bg.jpg'); /* Path to your background image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    color: white; /* Ensures text is readable */
+    text-align: center; /* Centers the text */
+    padding: 100px 20px; /* Adds padding for spacing */
+    position: relative; /* Allows for positioning of child elements */
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Adds a dark overlay for better text visibility */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: slideIn 1s ease-in-out; /* Add animation */
+}
+
+.cta-button {
+    background-color: #1DB954;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; /* Add animation */
+}
+
+.cta-button:hover {
+    background-color: #17a74a; /* Change background on hover */
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+/* Carousel */
+.carousel {
+    display: flex;
+    justify-content: center; /* Center the carousel items */
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+}
+
+.carousel-item {
+    min-width: 200px;
+    text-align: center;
+    background-color: #282828;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s; /* Add animation */
+}
+
+.carousel-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 230px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 5px;
+}
+/* Album Grid */
+.album-grid {
+    display: flex;
+    justify-content: center; /* Center the grid */
+    gap: 20px;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+}
+
+.album-item {
+    text-align: center;
+    background-color: #282828;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s; /* Add animation */
+}
+
+.album-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.album-item img {
+    width: 100%;
+    height: 230px; /* Set a fixed height for uniformity */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 5px;
+}
+
+/* Recommended Grid */
+.recommended-grid {
+    display: flex;
+    justify-content: center; /* Center the grid */
+    gap: 20px;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out; /* Add animation */
+}
+
+.recommended-item {
+    text-align: center;
+    background-color: #282828;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: transform 0.3s; /* Add animation */
+}
+
+.recommended-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.recommended-item img {
+    width: 100%;
+    height: 230px; /* Adjusted height for uniformity */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1DB954;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-content .social-media a {
+    color: white;
+    margin: 0 10px;
+    font-size: 20px;
+    transition: color 0.3s;
+}
+
+.footer-content .social-media a:hover {
+    color: #121212;
+}
+
+/* General styles for the theme toggle */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.theme-toggle .theme-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    display: none; /* Hide both icons by default */
+}
+
+.theme-icon {
+    display: none; /* Hide all theme icons by default */
+}
+
+body:not(.light-mode) .dark-mode-icon {
+    display: block; /* Show dark mode icon when not in light mode */
+}
+
+body.light-mode .light-mode-icon {
+    display: block; /* Show light mode icon when in light mode */
+}
+
+.theme-toggle input[type="checkbox"] {
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.theme-toggle input[type="checkbox"]::before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s;
+}
+
+.theme-toggle input[type="checkbox"]:checked {
+    background-color: #4caf50; /* Green background when checked */
+}
+
+.theme-toggle input[type="checkbox"]:checked::before {
+    transform: translateX(20px); /* Move the toggle circle to the right */
+}
+
+/* Light mode styles */
+body.light-mode .theme-toggle .light-mode-icon {
+    display: block; /* Show light mode icon */
+}
+
+body.light-mode .theme-toggle .dark-mode-icon {
+    display: none; /* Hide dark mode icon */
+}
+
+body.light-mode .theme-toggle input[type="checkbox"] {
+    background-color: #ccc;
+}
+
+body.light-mode .theme-toggle input[type="checkbox"]:checked {
+    background-color: #4caf50;
+}
+
+/* Light mode styles */
+body.light-mode {
+    background-color: #f5f5f5;
+    color: #000000; /* Changed to black for better contrast */
+}
+
+body.light-mode .carousel-item,
+body.light-mode .album-item,
+body.light-mode .recommended-item {
+    background-color: #ffffff;
+    color: #000000; /* Changed to black */
+}
+
+body.light-mode h1,
+body.light-mode h2,
+body.light-mode h3,
+body.light-mode p {
+    color: #000000; /* Ensure all text elements are black in light mode */
+}
+
+body.light-mode nav ul li a {
+    color: #ffffff; /* Keep nav text white for contrast with the green background */
+}
+
+body.light-mode nav ul li a:hover {
+    color: #000000; /* Change hover color to black for better visibility */
+}
+
+body.light-mode .hero-content {
+    color: #000000; /* Change hero text to black */
+}
+
+body.light-mode .cta-button {
+    color: #ffffff; /* Keep button text white for contrast */
+    background-color: #1DB954; /* Ensure button background is visible in light mode */
+}
+
+body.light-mode .search-bar input {
+    color: #000000; /* Change input text color to black */
+    background-color: #ffffff; /* Ensure input background is white */
+}
+
+body.light-mode .search-bar button i {
+    color: #1DB954; /* Keep the search icon green */
+}
+
+/* You may need to adjust other specific elements as needed */
+
+/* Music Player Styles */
+.music-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Black with 70% opacity */
+    backdrop-filter: blur(10px); /* This creates the glass effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 10px 0;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.player-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.album-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.song-info {
+    flex-grow: 1;
+}
+
+.song-title {
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.artist-name {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #b3b3b3;
+}
+
+.music-player audio {
+    width: 50%;
+    max-width: 400px;
+}
+
+/* Adjust the audio player styles for better visibility */
+.music-player audio::-webkit-media-controls-panel {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.music-player audio::-webkit-media-controls-current-time-display,
+.music-player audio::-webkit-media-controls-time-remaining-display {
+    color: #ffffff;
+}
+
+/* Adjust the main content to prevent overlap with the fixed player */
+body {
+    padding-bottom: 80px; /* Adjust this value based on your player's height */
+}
+
+/* Light mode adjustments */
+body.light-mode .music-player {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .song-title {
+    color: #000000;
+}
+
+body.light-mode .artist-name {
+    color: #555555;
+}
+
+body.light-mode .music-player audio::-webkit-media-controls-panel {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .music-player audio::-webkit-media-controls-current-time-display,
+body.light-mode .music-player audio::-webkit-media-controls-time-remaining-display {
+    color: #000000;
+}
+
+/* Button Animations */
+button {
+    transition: transform 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

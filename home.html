@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Music Player</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><img src="images/logo.png" alt="Music Player Logo"></div>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="playlist.html">Playlists</a></li>
+                <li><a href="artist.html">Artists</a></li>
+                <li><a href="player.html">Favorites</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <div class="theme-toggle">
+                <img src="images/sunny.svg" alt="Light Mode" class="theme-icon light-mode-icon">
+                <img src="images/moon.svg" alt="Dark Mode" class="theme-icon dark-mode-icon">
+                <input type="checkbox" id="theme-toggle-checkbox">
+                </label>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="hero" style="background-image: url('hero-bg.jpg');">
+            <div class="hero-content">
+                <h1>Discover New Music</h1>
+                <p>Explore the latest tracks and albums from your favorite artists.</p>
+                <button class="cta-button">Start Listening</button>
+            </div>
+        </section>
+        <section class="trending">
+            <h2>Trending Now</h2>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/let go.jpg.png" alt="Trending 1">
+                    <p>Let Go</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/finders keeper.jpg" alt="Trending 2">
+                    <p>Finders Keeper</p>
+                </div>
+                <div class="carousel-item">
+                    <img src="images/jaded.jpg" alt="Trending 3">
+                    <p>jaded</p>
+                </div>
+            </div>
+        </section>
+        <section class="new-releases">
+            <h2>New Releases</h2>
+            <div class="album-grid">
+                <div class="album-item">
+                    <img src="images/utopia.jpg" alt="Album 1">
+                    <p>Utopia</p>
+                </div>
+                <div class="album-item">
+                    <img src="images/Lil-Uzi-Vert-Pink-Tape.jpg" alt="Album 2">
+                    <p>Pink Tape</p>
+                </div>
+                <div class="album-item">
+                    <img src="images/tecca 2.jpg" alt="Album 3">
+                    <p>Tecca 2</p>
+                </div>
+            </div>
+        </section>
+        <section class="recommended">
+            <h2>Recommended for You</h2>
+            <div class="recommended-grid">
+                <div class="recommended-item">
+                    <img src="images/thrusting.jpg" alt="Recommended 1">
+                    <p>Thrusting</p>
+                </div>
+                <div class="recommended-item">
+                    <img src="images/payphone.jpg" alt="Recommended 2">
+                    <p>Payphone</p>
+                </div>
+                <div class="recommended-item">
+                    <img src="images/boys dont cry.jpg" alt="Recommended 3">
+                    <p>Boys don't Cry</p>
+                </div>
+            </div>
+            <div class="music-player">
+                <div class="player-content">
+                  <img src="images/album-cover.jpg" alt="Album Cover" class="album-cover">
+                  <div class="song-info">
+                    <h3 class="song-title">Song Title</h3>
+                    <p class="artist-name">Artist Name</p>
+                  </div>
+                  <audio controls>
+                    <source src="path/to/your/audio/file.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                  </audio>
+                </div>
+              </div>
+    </main>
+    <footer>
+      <div class="footer-content">
+             <div class="social-media">
+                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                 <a href="#"><i class="fab fa-instagram"></i></a>
+             </div>
+          <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
+        <div>
+    </footer>
+    <script src="home.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
