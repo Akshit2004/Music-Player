@@ -25,7 +25,6 @@
                 <img src="images/sunny.svg" alt="Light Mode" class="theme-icon light-mode-icon">
                 <img src="images/moon.svg" alt="Dark Mode" class="theme-icon dark-mode-icon">
                 <input type="checkbox" id="theme-toggle-checkbox">
-                </label>
             </div>
         </nav>
     </header>
@@ -40,32 +39,32 @@
         <section class="trending">
             <h2>Trending Now</h2>
             <div class="carousel">
-                <div class="carousel-item">
+                <div class="carousel-item" data-audio-src="music/Beau Young Prince - Let Go.mp3">
                     <img src="images/let go.jpg.png" alt="Trending 1">
                     <p>Let Go</p>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-audio-src="music/FINDERS KEEPERS feat. Scorey & Internet Money (Official Lyric Video).mp3">
                     <img src="images/finders keeper.jpg" alt="Trending 2">
                     <p>Finders Keeper</p>
                 </div>
-                <div class="carousel-item">
+                <div class="carousel-item" data-audio-src="music/JADED.mp3">
                     <img src="images/jaded.jpg" alt="Trending 3">
-                    <p>jaded</p>
+                    <p>Jaded</p>
                 </div>
             </div>
         </section>
         <section class="new-releases">
             <h2>New Releases</h2>
             <div class="album-grid">
-                <div class="album-item">
+                <div class="album-item" data-audio-src="music/Travis Scott - FE!N (Official Music Video) ft. Playboi Carti.mp3">
                     <img src="images/utopia.jpg" alt="Album 1">
                     <p>Utopia</p>
                 </div>
-                <div class="album-item">
+                <div class="album-item" data-audio-src="music/Lil Uzi Vert - Nakamura [Official Audio].mp3">
                     <img src="images/Lil-Uzi-Vert-Pink-Tape.jpg" alt="Album 2">
                     <p>Pink Tape</p>
                 </div>
-                <div class="album-item">
+                <div class="album-item" data-audio-src="music/Lil Tecca - REPEAT IT ft. Gunna (Official Video).mp3">
                     <img src="images/tecca 2.jpg" alt="Album 3">
                     <p>Tecca 2</p>
                 </div>
@@ -74,42 +73,43 @@
         <section class="recommended">
             <h2>Recommended for You</h2>
             <div class="recommended-grid">
-                <div class="recommended-item">
+                <div class="recommended-item" data-audio-src="music/Internet Money - Thrusting Ft. Swae Lee & Future (Official Lyric Video).mp3">
                     <img src="images/thrusting.jpg" alt="Recommended 1">
                     <p>Thrusting</p>
                 </div>
-                <div class="recommended-item">
+                <div class="recommended-item" data-audio-src="music/Maroon 5 - Payphone ft. Wiz Khalifa (Explicit) (Official Music Video).mp3">
                     <img src="images/payphone.jpg" alt="Recommended 2">
                     <p>Payphone</p>
                 </div>
-                <div class="recommended-item">
+                <div class="recommended-item" data-audio-src="music/Oliver Cronin - Boys Don't Cry.mp3">
                     <img src="images/boys dont cry.jpg" alt="Recommended 3">
-                    <p>Boys don't Cry</p>
+                    <p>Boys Don't Cry</p>
                 </div>
             </div>
-            <div class="music-player">
-                <div class="player-content">
-                  <img src="images/album-cover.jpg" alt="Album Cover" class="album-cover">
-                  <div class="song-info">
-                    <h3 class="song-title">Song Title</h3>
-                    <p class="artist-name">Artist Name</p>
-                  </div>
-                  <audio controls>
-                    <source src="path/to/your/audio/file.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                  </audio>
+        </section>
+        <div class="music-player">
+            <div class="player-content">
+                <img src="images/album-cover.jpg" alt="Album Cover" class="album-cover" id="bottom-player-album-cover">
+                <div class="song-info">
+                    <h3 class="song-title" id="bottom-player-song-title">Song Title</h3>
+                    <p class="artist-name" id="bottom-player-artist-name">Artist Name</p>
                 </div>
-              </div>
+                <audio controls id="bottom-player-audio">
+                    <source src="audio/sample-song.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
     </main>
     <footer>
-      <div class="footer-content">
-             <div class="social-media">
-                 <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <div class="footer-content">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                 <a href="#"><i class="fab fa-instagram"></i></a>
-             </div>
-          <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
-        <div>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2024 Akshit Mahajan. All rights reserved.</p>
+        </div>
     </footer>
     <script src="home.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

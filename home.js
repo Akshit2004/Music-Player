@@ -1,9 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Add hover effect to album and recommended items
+    // Add hover effect to album, recommended, and carousel items
     const albumItems = document.querySelectorAll('.album-item');
     const recommendedItems = document.querySelectorAll('.recommended-item');
+    const carouselItems = document.querySelectorAll('.carousel-item');
 
-    albumItems.forEach(item => {
+    const allItems = [...albumItems, ...recommendedItems, ...carouselItems];
+
+    allItems.forEach(item => {
         item.addEventListener('mouseover', () => {
             item.style.transform = 'scale(1.05)';
             item.style.transition = 'transform 0.3s';
@@ -14,22 +17,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         item.addEventListener('click', () => {
-            alert(`You clicked on ${item.querySelector('p').textContent}`);
-        });
-    });
+            const songTitle = item.querySelector('p').innerText;
+            const albumCover = item.querySelector('img').src;
+            const audioSource = item.getAttribute('data-audio-src');
+            const artistName = "Unknown Artist"; // Update this if you have artist information
 
-    recommendedItems.forEach(item => {
-        item.addEventListener('mouseover', () => {
-            item.style.transform = 'scale(1.05)';
-            item.style.transition = 'transform 0.3s';
-        });
+            console.log(`Playing song: ${songTitle}`);
+            console.log(`Audio source: ${audioSource}`);
 
-        item.addEventListener('mouseout', () => {
-            item.style.transform = 'scale(1)';
-        });
+            if (!audioSource) {
+                console.error('Audio source is missing for this item.');
+                return;
+            }
 
-        item.addEventListener('click', () => {
-            alert(`You clicked on ${item.querySelector('p').textContent}`);
+            const bottomPlayerAudio = document.getElementById('bottom-player-audio');
+            const bottomPlayerSongTitle = document.getElementById('bottom-player-song-title');
+            const bottomPlayerArtistName = document.getElementById('bottom-player-artist-name');
+            const bottomPlayerAlbumCover = document.getElementById('bottom-player-album-cover');
+
+            bottomPlayerAudio.src = audioSource;
+            bottomPlayerSongTitle.innerText = songTitle;
+            bottomPlayerArtistName.innerText = artistName;
+            bottomPlayerAlbumCover.src = albumCover;
+
+            bottomPlayerAudio.load(); // Ensure the new source is loaded
+            bottomPlayerAudio.play().catch(error => {
+                console.error('Error playing audio:', error);
+            });
         });
     });
 
@@ -39,8 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     searchButton.addEventListener('click', () => {
         const query = searchInput.value.toLowerCase();
-        const allItems = [...albumItems, ...recommendedItems];
-
         allItems.forEach(item => {
             const title = item.querySelector('p').textContent.toLowerCase();
             if (title.includes(query)) {
@@ -56,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
             searchButton.click();
         }
     });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
+    // Theme toggle functionality
     const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
     const body = document.body;
 
@@ -82,4 +93,3 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
-
