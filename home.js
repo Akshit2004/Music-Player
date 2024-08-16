@@ -62,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     queueToggleButton.addEventListener('click', () => {
         queueModal.classList.toggle('hidden');
+        queueModal.style.display = queueModal.classList.contains('hidden') ? 'none' : 'block';
     });
 
     allItems.forEach(item => {

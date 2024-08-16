@@ -658,6 +658,21 @@ button:hover {
     display: none;
 }
 
+.queue-modal {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    width: 300px;
+    max-height: 400px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    z-index: 1000;
+    padding: 10px;
+    display: none; /* Initially hidden */
+}
+
 .queue-modal h3 {
     margin-top: 0;
 }
@@ -680,7 +695,6 @@ button:hover {
 .queue-modal.hidden {
     display: none;
 }
-
 @keyframes fadeIn {
     from {
         opacity: 0;

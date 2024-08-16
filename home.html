@@ -149,13 +149,17 @@
                     </div>
                 </div>
             </div>
-                        <div class="controls">
-                <button id="prev"><i class="fas fa-backward"></i></button>
-                <button id="play-pause"><i class="fas fa-play"></i></button>
-                <button id="next"><i class="fas fa-forward"></i></button>
-                <button id="like"><i class="fas fa-heart"></i></button>
-                <button id="queue-toggle"><i class="fas fa-list"></i></button> 
-            </div>
+                         <div class="controls">
+                            <button id="prev"><i class="fas fa-backward"></i></button>
+                            <button id="play-pause"><i class="fas fa-play"></i></button>
+                            <button id="next"><i class="fas fa-forward"></i></button>
+                            <button id="like"><i class="fas fa-heart"></i></button>
+                            <button id="queue-toggle"><i class="fas fa-list"></i></button> <!-- New button for queue -->
+                        </div>
+                        <div class="queue-modal hidden" id="queue-modal">
+                            <h3>Queue</h3>
+                            <ul id="queue-list"></ul>
+                        </div>
             <div class="queue-modal hidden" id="queue-modal">
                 <h3>Queue</h3>
                 <ul id="queue-list"></ul>
