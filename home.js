@@ -221,3 +221,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.getElementById('navbar-toggle').addEventListener('click', function() {
+    var menu = document.getElementById('navbar-menu');
+    menu.classList.toggle('active');
+});
+
+document.getElementById('search-icon').addEventListener('click', function() {
+    var searchBar = document.getElementById('search-bar');
+    searchBar.classList.toggle('active');
+    searchBar.style.display = searchBar.classList.contains('active') ? 'flex' : 'none';
+});

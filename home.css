@@ -1,12 +1,10 @@
-
-
-
-body {
-    font-family: 'Arial', sans-serif;
+html,body {
+       background: linear-gradient(135deg, #000000, #1a1a1a, #333333);
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #121212;
-    color: #ffffff;
+    color: #fff; 
+    overflow-x: hidden;
 }
 .container {
     max-width: 1200px; 
@@ -26,16 +24,137 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #202020;
     padding: 10px 20px;
-    background: linear-gradient(90deg, #1DB954, #1ED760); 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    position: relative;
+    z-index: 1000;
 }
 
-nav .logo img {
-    height: 40px; 
-    width: auto;
-    transition: transform 0.3s; 
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
 }
+
+.navbar-menu li {
+    margin-left: 20px;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+}
+
+.search-icon {
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: relative;
+    order: 2; /* Ensure the search icon is on the right */
+}
+
+
+
+.search-bar.active {
+    display: flex;
+    width: 200px;
+}
+
+.search-bar input {
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    background-color: #333;
+    color: #fff;
+    width: 100%;
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.theme-toggle img {
+    height: 20px;
+    cursor: pointer;
+}
+
+.navbar-toggle {
+    display: none;
+    color: #fff;
+    font-size: 1.5em;
+    cursor: pointer;
+    order: 1; /* Ensure the navbar toggle is on the left */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #202020;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        max-height: 0;
+    }
+
+    .navbar-menu.active {
+        display: flex;
+        max-height: 400px; 
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    #search-icon {
+        position: absolute;
+        right: 10px; /* Adjust as needed */
+        top: 5px; /* Adjust as needed */
+    }
+
+    .search-bar {
+        display: none;
+        width: 80%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+
+    .search-bar.active {
+        display: flex;
+    }
+
+    .theme-toggle {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (min-width: 769px) {
+    .navbar-menu {
+        display: flex;
+    }
+
+    .search-bar {
+        display: flex;
+    }
+
+    .theme-toggle {
+        display: flex;
+    }
+}
+
+
 
 nav .logo img:hover {
     transform: scale(1.1); 
@@ -103,6 +222,8 @@ nav ul li a:hover {
 .search-bar button i {
     color: #1DB954;
 }
+
+
 
 .hero {
     background-image: url('hero-bg.jpg'); 
@@ -181,13 +302,15 @@ nav ul li a:hover {
 
 .album-grid {
     display: flex;
-    justify-content: center;
+    justify-content: center; 
+    overflow-x: auto;
     gap: 20px;
     padding: 20px;
-    animation: fadeIn 1s ease-in-out; 
+    animation: fadeIn 1s ease-in-out;
 }
 
 .album-item {
+    min-width: 200px;
     text-align: center;
     background-color: #282828;
     border-radius: 10px;
@@ -217,6 +340,7 @@ nav ul li a:hover {
 }
 
 .recommended-item {
+    min-width: 200px;
     text-align: center;
     background-color: #282828;
     border-radius: 10px;
@@ -416,6 +540,7 @@ body.light-mode .search-bar input {
 body.light-mode .search-bar button i {
     color: #1DB954; 
 }
+
 
 :root {
     --background-color: rgba(24, 24, 24, 0.9);
@@ -695,6 +820,8 @@ button:hover {
 .queue-modal.hidden {
     display: none;
 }
+
+
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -743,14 +870,11 @@ button:hover {
     }
 
     .carousel, .album-grid, .recommended-grid {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
     }
+    
 
-    .carousel-item, .album-item, .recommended-item {
-        width: 100%;
-        max-width: 300px;
-    }
 
     .music-player {
         flex-direction: column;

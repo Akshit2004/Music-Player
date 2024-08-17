@@ -20,21 +20,25 @@
 <body>
     <header>
         <nav>
-            <div class="logo"><img src="images/logo.png" alt="Music Player Logo"></div>
-            <ul>
+            <div class="navbar-toggle" id="navbar-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="navbar-menu" id="navbar-menu">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="playlist.html">Playlists</a></li>
                 <li><a href="artist.html">Artists</a></li>
                 <li><a href="player.html">Favorites</a></li>
+                <li class="theme-toggle">
+                    <img src="images/sunny.svg" alt="Light Mode" class="theme-icon light-mode-icon">
+                    <img src="images/moon.svg" alt="Dark Mode" class="theme-icon dark-mode-icon">
+                    <input type="checkbox" id="theme-toggle-checkbox">
+                </li>
             </ul>
-            <div class="search-bar">
-                <input type="text" placeholder="Search...">
-                <button><i class="fas fa-search"></i></button>
+            <div class="search-icon" id="search-icon">
+                <i class="fas fa-search"></i>
             </div>
-            <div class="theme-toggle">
-                <img src="images/sunny.svg" alt="Light Mode" class="theme-icon light-mode-icon">
-                <img src="images/moon.svg" alt="Dark Mode" class="theme-icon dark-mode-icon">
-                <input type="checkbox" id="theme-toggle-checkbox">
+            <div class="search-bar" id="search-bar">
+                <input type="text" placeholder="Search...">
             </div>
         </nav>
     </header>
