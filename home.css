@@ -271,10 +271,11 @@ nav ul li a:hover {
 
 .carousel {
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; 
     overflow-x: auto;
     gap: 20px;
     padding: 20px;
+    white-space: nowrap; 
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -302,10 +303,11 @@ nav ul li a:hover {
 
 .album-grid {
     display: flex;
-    justify-content: center; 
+    justify-content: flex-start; /* Align items to the start */
     overflow-x: auto;
     gap: 20px;
     padding: 20px;
+    white-space: nowrap; /* Prevent wrapping */
     animation: fadeIn 1s ease-in-out;
 }
 
@@ -333,10 +335,12 @@ nav ul li a:hover {
 
 .recommended-grid {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; 
+    overflow-x: auto;
     gap: 20px;
     padding: 20px;
-    animation: fadeIn 1s ease-in-out; 
+    white-space: nowrap; 
+    animation: fadeIn 1s ease-in-out;
 }
 
 .recommended-item {
@@ -774,7 +778,6 @@ button:hover {
     right: 20px;
     width: 300px;
     max-height: 400px;
-    background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
@@ -782,20 +785,15 @@ button:hover {
     padding: 10px;
     display: none;
 }
-
-.queue-modal {
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-    width: 300px;
-    max-height: 400px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto;
-    z-index: 1000;
-    padding: 10px;
-    display: none; /* Initially hidden */
+.queue-modal ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    backdrop-filter: blur(10px); /* Glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Glass effect for Safari */
+    border-radius: 10px; /* Optional: rounded corners */
+    color: #fff; /* White text color */
 }
 
 .queue-modal h3 {

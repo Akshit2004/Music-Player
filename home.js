@@ -55,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
         queueList.innerHTML = '';
         queue.forEach((song, index) => {
             const listItem = document.createElement('li');
-            listItem.innerText = `${index + 1}. ${song.songTitle} - ${song.artistName}`;
+            const text = document.createElement('span');
+            text.innerText = `${index + 1}. ${song.songTitle} - ${song.artistName}`;
+            listItem.appendChild(text);
             queueList.appendChild(listItem);
         });
     }
@@ -88,8 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 artistName
             };
 
-            queue.unshift(song); // Add the song to the front of the queue
-            playNextInQueue(); // Play the song immediately
+            queue.unshift(song);
+            playNextInQueue();
         });
 
         likeButton.addEventListener('click', () => {
@@ -119,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 artistName
             };
 
-            addToQueue(song); // Add the song to the queue without playing it immediately
+            addToQueue(song);
         });
     });
 
@@ -149,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     audioPlayer.addEventListener('ended', playNextInQueue);
 
-    // Add search functionality
     const searchInput = document.querySelector('.search-bar input');
     const searchButton = document.querySelector('.search-bar button');
 
@@ -171,11 +172,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Theme toggle functionality
     const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
     const body = document.body;
 
-    // Check the saved theme preference in localStorage
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light') {
         body.classList.add('light-mode');
@@ -195,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Add functionality to "Start Listening" button
     const startListeningButton = document.querySelector('.cta-button');
     startListeningButton.addEventListener('click', () => {
         const firstCarouselItem = carouselItems[0];
@@ -220,15 +218,4 @@ document.addEventListener('DOMContentLoaded', () => {
             addToQueue(song);
         }
     });
-});
-
-document.getElementById('navbar-toggle').addEventListener('click', function() {
-    var menu = document.getElementById('navbar-menu');
-    menu.classList.toggle('active');
-});
-
-document.getElementById('search-icon').addEventListener('click', function() {
-    var searchBar = document.getElementById('search-bar');
-    searchBar.classList.toggle('active');
-    searchBar.style.display = searchBar.classList.contains('active') ? 'flex' : 'none';
 });
