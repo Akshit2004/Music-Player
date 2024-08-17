@@ -326,6 +326,7 @@ nav ul li a:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     transition: transform 0.3s; 
+    
 }
 
 .recommended-item:hover {
@@ -519,6 +520,7 @@ body {
     display: inline-block;
     margin: 10px;
     text-align: center;
+    
 }
 
 .play-button, .like-button {
@@ -666,10 +668,10 @@ button:hover {
     .carousel, .album-grid, .recommended-grid {
         flex-direction: row;
         align-items: center;
+        justify-content: flex-start;
+        
     }
     
-
-
     .music-player {
         flex-direction: column;
         align-items: center;
@@ -681,7 +683,7 @@ button:hover {
     }
 
     .progress {
-        width: 100%;
+        width: 90%;
         margin: 10px 0;
     }
 
