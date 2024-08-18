@@ -16,29 +16,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const queueToggleButton = document.getElementById('queue-toggle');
     const queueModal = document.getElementById('queue-modal');
     const queueList = document.getElementById('queue-list');
+    const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
 
     let isPlaying = false;
     let queue = [];
+    let currentSongIndex = -1;
 
     function addToQueue(song) {
         queue.push(song);
         updateQueueList();
         if (queue.length === 1 && !isPlaying) {
-            playNextInQueue();
+            currentSongIndex = 0;
+            playSongAtIndex(currentSongIndex);
         }
     }
 
-    function playNextInQueue() {
-        if (queue.length === 0) {
-            musicPlayer.classList.add('hidden');
-            return;
-        }
-
-        const nextSong = queue.shift();
-        audioPlayer.src = nextSong.audioSource;
-        bottomPlayerSongTitle.innerText = nextSong.songTitle;
-        bottomPlayerArtistName.innerText = nextSong.artistName;
-        bottomPlayerAlbumCover.src = nextSong.albumCover;
+    function playSongAtIndex(index) {
+        if (index < 0 || index >= queue.length) return;
+        
+        const song = queue[index];
+        audioPlayer.src = song.audioSource;
+        bottomPlayerSongTitle.innerText = song.songTitle;
+        bottomPlayerArtistName.innerText = song.artistName;
+        bottomPlayerAlbumCover.src = song.albumCover;
 
         audioPlayer.load();
         audioPlayer.play().catch(error => {
@@ -48,7 +49,28 @@ document.addEventListener('DOMContentLoaded', () => {
         isPlaying = true;
         playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
         musicPlayer.classList.remove('hidden');
-        updateQueueList();
+    }
+
+    function playNextSong() {
+        if (queue.length === 0) return;
+        currentSongIndex = (currentSongIndex + 1) % queue.length;
+        playSongAtIndex(currentSongIndex);
+    }
+
+    function playPreviousSong() {
+        if (queue.length === 0) return;
+        currentSongIndex = (currentSongIndex - 1 + queue.length) % queue.length;
+        playSongAtIndex(currentSongIndex);
+    }
+
+    function playNextInQueue() {
+        if (queue.length === 0) {
+            musicPlayer.classList.add('hidden');
+            return;
+        }
+
+        currentSongIndex = (currentSongIndex + 1) % queue.length;
+        playSongAtIndex(currentSongIndex);
     }
 
     function updateQueueList() {
@@ -91,7 +113,8 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             queue.unshift(song);
-            playNextInQueue();
+            currentSongIndex = 0;
+            playSongAtIndex(currentSongIndex);
         });
 
         likeButton.addEventListener('click', () => {
@@ -149,7 +172,10 @@ document.addEventListener('DOMContentLoaded', () => {
         isPlaying = !isPlaying;
     });
 
-    audioPlayer.addEventListener('ended', playNextInQueue);
+    audioPlayer.addEventListener('ended', playNextSong);
+
+    nextButton.addEventListener('click', playNextSong);
+    prevButton.addEventListener('click', playPreviousSong);
 
     const searchInput = document.querySelector('.search-bar input');
     const searchButton = document.querySelector('.search-bar button');
@@ -172,26 +198,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    const themeToggleCheckbox = document.getElementById('theme-toggle-checkbox');
-    const body = document.body;
+    const navbarToggle = document.getElementById('navbar-toggle');
+    const navbarMenu = document.getElementById('navbar-menu');
+    const searchIcon = document.getElementById('search-icon');
+    const searchBar = document.getElementById('search-bar');
 
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'light') {
-        body.classList.add('light-mode');
-        themeToggleCheckbox.checked = true;
-    } else {
-        body.classList.remove('light-mode');
-        themeToggleCheckbox.checked = false;
-    }
+    // Toggle navbar menu
+    navbarToggle.addEventListener('click', () => {
+        navbarMenu.classList.toggle('active');
+    });
 
-    themeToggleCheckbox.addEventListener('change', () => {
-        if (themeToggleCheckbox.checked) {
-            body.classList.add('light-mode');
-            localStorage.setItem('theme', 'light');
-        } else {
-            body.classList.remove('light-mode');
-            localStorage.setItem('theme', 'dark');
-        }
+    // Toggle search bar
+    searchIcon.addEventListener('click', () => {
+        searchBar.classList.toggle('active');
     });
 
     const startListeningButton = document.querySelector('.cta-button');

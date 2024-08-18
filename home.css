@@ -31,12 +31,13 @@ nav {
 }
 
 .navbar-menu {
-    display: flex;
+    display: none;
     list-style: none;
     margin: 0;
     padding: 0;
     transition: max-height 0.3s ease-out;
     overflow: hidden;
+    flex-direction: row;
 }
 
 .navbar-menu li {
@@ -56,11 +57,12 @@ nav {
     cursor: pointer;
     position: relative;
     order: 2; 
+    margin-left: 10px
 }
 
 .search-bar.active {
     display: flex;
-    width: 200px;
+    width: 100px;
 }
 
 .search-bar input {
@@ -81,61 +83,42 @@ nav {
 }
 
 @media (max-width: 768px) {
-    .navbar-menu {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        background-color: #202020;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        max-height: 0;
-    }
-
-    .navbar-menu.active {
-        display: flex;
-        max-height: 400px; 
-    }
-
     .navbar-toggle {
         display: block;
+        order: 1;
+        margin-right: auto;
     }
 
     #search-icon {
-        position: absolute;
-        right: 10px;
-        top: 5px;
+        order: 3;
+        margin-left: auto;
     }
 
     .search-bar {
-        display: none;
-        width: 80%;
-        justify-content: center;
-        margin-top: 10px;
+        order: 2; 
+        width: auto; 
+        flex-grow: 1; 
+        margin: 10px 10px; 
     }
 
-    .search-bar.active {
+    nav {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar-toggle {
+        position: static;
+        left: auto;
+    }
+
+    #search-icon {
+        position: static;
+        right: auto;
     }
 }
 
-@media (min-width: 769px) {
-    .navbar-menu {
-        display: flex;
-    }
-
-    .search-bar {
-        display: flex;
-    }
-
-    .theme-toggle {
-        display: flex;
-    }
-}
-
-nav .logo img:hover {
-    transform: scale(1.1); 
-}
 
 nav ul {
     list-style: none;
@@ -638,28 +621,7 @@ button:hover {
     }
 }
 
-/* Media Queries for responsiveness */
 @media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .search-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-    }
-
-    .search-bar input {
-        width: 100%;
-        margin-bottom: 10px;
-    }
 
     .hero {
         padding: 50px 20px;
@@ -694,23 +656,6 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-    nav .logo img {
-        height: 30px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
-        padding: 8px 10px;
-    }
-
-    .search-bar input {
-        font-size: 14px;
-    }
-
-    .search-bar button {
-        font-size: 14px;
-        padding: 5px 8px;
-    }
 
     .hero {
         padding: 30px 10px;
