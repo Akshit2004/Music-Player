@@ -95,10 +95,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function performSearch() {
-        const query = searchInput.value.toLowerCase();
+        const query = searchInput.value.toLowerCase().trim();
+
         allItems.forEach(item => {
-            const title = item.querySelector('p').textContent.toLowerCase();
-            item.style.display = title.includes(query) ? 'block' : 'none';
+            if (query === '') {
+                // If search is blank, show all items
+                item.style.display = 'inline-block';
+            } else {
+                const title = item.querySelector('p').textContent.toLowerCase();
+                const artist = item.querySelectorAll('p')[1].textContent.toLowerCase();
+                const isMatch = title.includes(query) || artist.includes(query);
+                item.style.display = isMatch ? 'inline-block' : 'none';
+            }
         });
     }
 
@@ -182,12 +190,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (searchButton) {
-        searchButton.addEventListener('click', performSearch);
+        searchButton.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent form submission if it's in a form
+            performSearch();
+        });
     }
 
     if (searchInput) {
         searchInput.addEventListener('keyup', (event) => {
             if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission
                 performSearch();
             }
         });

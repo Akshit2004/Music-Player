@@ -31,10 +31,13 @@ nav {
 }
 
 .navbar-menu {
-    display: flex;
+    display: none;
     list-style: none;
     margin: 0;
     padding: 0;
+    transition: max-height 0.3s ease-out;
+    overflow: hidden;
+    flex-direction: row;
 }
 
 .navbar-menu li {
@@ -133,20 +136,6 @@ nav {
     #search-icon {
         position: static;
         right: auto;
-    }
-}
-
-@media (min-width: 769px) {
-    nav {
-        justify-content: space-between;
-    }
-
-    .navbar-toggle {
-        display: none;
-    }
-
-    #search-icon {
-        order: 3;
     }
 }
 
