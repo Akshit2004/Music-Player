@@ -20,10 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const prevButton = document.getElementById('prev');
     const navbarToggle = document.getElementById('navbar-toggle');
     const navbarMenu = document.getElementById('navbar-menu');
-    const searchIcon = document.getElementById('search-icon');
-    const searchBar = document.getElementById('search-bar');
     const searchInput = document.querySelector('.search-bar input');
-    const searchButton = document.querySelector('.search-bar button');
+    const searchButton = document.querySelector('.search-bar button, .search-button');
     const startListeningButton = document.querySelector('.cta-button');
 
     // State variables
@@ -96,18 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function performSearch() {
         const query = searchInput.value.toLowerCase().trim();
+        console.log('Performing search with query:', query);
 
+        let matchCount = 0;
         allItems.forEach(item => {
-            if (query === '') {
-                // If search is blank, show all items
-                item.style.display = 'inline-block';
-            } else {
-                const title = item.querySelector('p').textContent.toLowerCase();
-                const artist = item.querySelectorAll('p')[1].textContent.toLowerCase();
-                const isMatch = title.includes(query) || artist.includes(query);
-                item.style.display = isMatch ? 'inline-block' : 'none';
-            }
+            const title = item.querySelector('p').textContent.toLowerCase();
+            const artist = item.querySelectorAll('p')[1]?.textContent.toLowerCase() || '';
+            const isMatch = title.includes(query) || artist.includes(query);
+            item.style.display = isMatch || query === '' ? 'inline-block' : 'none';
+            if (isMatch) matchCount++;
         });
+        console.log(`Found ${matchCount} matches`);
     }
 
     // Event Listeners
@@ -192,6 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchButton) {
         searchButton.addEventListener('click', (event) => {
             event.preventDefault(); // Prevent form submission if it's in a form
+            console.log('Search button clicked');
             performSearch();
         });
     }
@@ -208,12 +206,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (navbarToggle && navbarMenu) {
         navbarToggle.addEventListener('click', () => {
             navbarMenu.classList.toggle('active');
-        });
-    }
-
-    if (searchIcon && searchBar) {
-        searchIcon.addEventListener('click', () => {
-            searchBar.classList.toggle('active');
         });
     }
 
